@@ -1,0 +1,13 @@
+for zahl in range(anfang, ende + 1):
+    if zahl > 1:
+        ist_primzahl = True
+        for divisor in range(2, int(zahl**0.5) + 1):
+            if zahl % divisor == 0:
+                ist_primzahl = False
+                break
+        if ist_primzahl:
+            primzahlen.append(zahl)
+
+print("Primzahlen zwischen", anfang, "und", ende, "sind:", primzahlen)
+
+
