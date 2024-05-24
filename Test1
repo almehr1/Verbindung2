@@ -9,5 +9,5 @@ for zahl in range(anfang, ende + 1):
             primzahlen.append(zahl)
 
 print("Primzahlen zwischen", anfang, "und", ende, "sind:", primzahlen)
-
+print("Dieser Satz wird ausgedruckt um die Git pull Funktion zu testen")
 
