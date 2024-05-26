@@ -1,0 +1,21 @@
+import yfinance as yf
+import pandas as pd
+
+# Laden der historischen Daten des S&P 500 (Ticker: ^GSPC) der letzten 100 Jahre
+ticker = "^GSPC"
+start_date = "1923-01-01"
+end_date = "2023-12-31"
+
+data = yf.download(ticker, start=start_date, end=end_date)
+
+# Berechnung der jährlichen Renditen
+data['Yearly Return'] = data['Adj Close'].resample('Y').ffill().pct_change()
+
+# Entfernen von Zeilen mit fehlenden Werten (NaN)
+data = data.dropna()
+
+# Ausgabe des DataFrame mit den Renditen
+print(data)
+
+# Optional: Speichern des DataFrames in einer CSV-Datei
+data.to_csv("sp500_returns.csv")
